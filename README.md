@@ -32,4 +32,4 @@ We would love your contributions to this open source project — in Core code, p
 
 Amalia was originally designed and developed by [Chris Van Patten](http://chrisvanpatten.com), [Peter Upfold](http://peter.upfold.org.uk/) and [Nick Sampsell](http://nicksampsell.com/), and was inspired by 'legacy Amalia', written by [Jacob Peddicord](http://jacob.peddicord.net/).
 
-The project is released under [this licence](https://github.com/vanpattenmedia/amalia/wiki/Licence).
+The project is released under [this licence](https://github.com/vanpattenmedia/amalia/raw/master/LICENSE).
