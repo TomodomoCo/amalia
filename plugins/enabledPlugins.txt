@@ -1,0 +1,14 @@
+# Enabled plugins file
+#
+# Amalia Plugin Proto
+#
+#
+# Any plugin identifiers listed in this file are considered
+# enabled. To disable a plugin without removing it from this
+# file, prefix the line with a '#'.
+#
+#
+# Plugins are separated by new lines.
+#com.getamalia.DemoEndpointPlugin
+#com.getamalia.EditorWordFilter
+#com.getamalia.ExtraNavItemExample

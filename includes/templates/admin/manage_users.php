@@ -1,0 +1,131 @@
+<?php
+/**
+ * Amalia2
+ *
+ * The way "real people" manage websites
+ *
+ * @package	Amalia2
+ * @author		Amalia Dev Team
+ * @copyright	Copyright (c) 2007-2011 Chris Van Patten, Nick Sampsell, Peter Upfold
+ * @license		http://getamalia.com/license.html
+ * @link		http://getamalia.com
+ * @since		Version 2.0
+ * @filesource
+ */
+ 
+/*
+Amalia. A content management system "for the rest of us".
+
+Copyright (C) 2007-2011 Chris Van Patten, Nick Sampsell and Peter Upfold. 
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is furnished
+to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies
+or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+Except as contained in this notice, the names of the authors or copyright holders
+shall not be used in commercial advertising or to otherwise promote the sale,
+commercial use or other commercial dealings regarding this Software without prior
+written authorization from the the authors or copyright holders. Non-commercial use
+of the authors and copyright holders' names is permitted, but it may be revoked on
+a case-by-case basis if the authors wish to disconnect themselves from a particular use.
+*/
+
+
+if (!defined('IN_AMALIA'))
+{
+	// template not to be viewed outside Amalia
+	header('HTTP/1.0 403 Forbidden');
+	die('Forbidden');
+}
+?><p id="desc">Create, edit, and remove users associated with your Amalia installation.</p>
+
+<ul class="tools horiz-tools">
+	<li style="float: left;"><a id="user" href="<?php echo print_internal_link('settings','do=create-user');?>"><span>Create User</span></a></li>	
+</ul>
+<form action="<?php print_internal_link('settings', 'do=manage-users');?>" method="post" onsubmit="return confirm('Are you sure you want to delete these users?\n\nThis cannot be undone.');">
+<ul>
+
+<?php
+if (is_array($users) && count ($users) > 0)
+{
+foreach($users as $loop => $user) {
+
+if ($loop % 2) {
+	$alt_link = 'alt1';
+} else {
+	$alt_link =  'alt2';
+}
+
+	// make sure user id is what we're expecting
+	$user['id'] = preg_replace('/([^0-9]+)/', '', $user['id']);
+?>
+<li class="user <?php echo $alt_link; ?>">
+	<div class="filetype">
+		<!-- <?php
+			if($user['username'] === $_SESSION['amalia_auth']['username']) {
+		?>
+			<input type="checkbox" id="cbox_<?php echo safe_plain($user['username']); ?>" name="all[]"  disabled="disabled" value="DISABLED"/>
+		<?php
+			} else {
+		?>
+			<input type="checkbox" id="cbox_<?php echo safe_plain($user['username']); ?>" name="all[]"  value="<?php echo $user['id']; ?>"/>	
+		<?php
+			}
+		?> -->
+	</div>
+	<div class="filemeta">
+		<span class="filetitle"><?php echo safe_plain($user['username']); ?></span>
+		<em class="filename"><?php echo safe_plain($user['email']); ?></em>
+	</div>
+	<ul class="ftools">
+		<?php
+		if($user['username'] === $_SESSION['amalia_auth']['username']) {
+		?>
+		<li class="delete disabled">
+			<div class="holder ftool">
+				Delete
+				<div class="confirmation"></div>
+			</div>
+		</li>
+		<li class="edit">
+			<a href="<?php echo print_internal_link('settings','do=edit-user&amp;userid='.urlencode(safe_plain($user['id']))); ?>" class="ftool">Edit</a>
+		</li>
+		<?php
+		} else {
+		?>
+		<li class="delete closed-delete" title="Delete">
+			<div class="holder ftool">
+				Delete
+				<div class="confirmation">Are you sure you want to delete this user? <a href="<?php echo print_internal_link('settings', 'do=delete-user&userid='.urlencode(safe_plain($user['id'])));?>" onclick="return confirm('Are you sure you want to delete this user?\n\nThis action cannot be undone. This user will no longer be able to log in and will be logged out if they are using Amalia right now.');">Yes</a> or <a href="javascript:void()">No</a></div>
+			</div>
+		</li>
+		<li class="edit">
+			<a href="<?php echo print_internal_link('settings','do=edit-user&amp;userid='.urlencode(safe_plain($user['id']))); ?>" class="ftool">Edit</a>
+		</li>
+		<?php
+		}
+		?>
+	</ul>
+</li>
+<?php
+}
+}
+?>
+</ul>
+
+<!-- <input type="hidden" name="delete-checked-users" value="true" />
+<p><input type="submit" value="Delete Checked" id="delete" name="delete" /></p> -->
+</form>

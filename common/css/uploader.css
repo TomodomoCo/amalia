@@ -1,0 +1,96 @@
+/*
+Amalia. A content management system "for the rest of us".
+
+Copyright (C) 2007-2011 Chris Van Patten, Nick Sampsell and Peter Upfold. 
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is furnished
+to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies
+or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+Except as contained in this notice, the names of the authors or copyright holders
+shall not be used in commercial advertising or to otherwise promote the sale,
+commercial use or other commercial dealings regarding this Software without prior
+written authorization from the the authors or copyright holders. Non-commercial use
+of the authors and copyright holders' names is permitted, but it may be revoked on
+a case-by-case basis if the authors wish to disconnect themselves from a particular use.
+*/
+
+.media-item .pinkynail {
+	float: left;
+	height: 32px;
+	margin: 2px;
+	max-width: 40px;
+	max-height: 40px;
+}
+
+.media-item .startopen,
+.media-item .startclosed {
+	display: none;
+}
+
+.media-item .original {
+	position: relative;
+	height: 34px;
+	text-align: center;
+}
+
+.media-item .percent {
+	font-weight: bold;
+}
+
+.crunching {
+	display: block;
+	line-height: 32px;
+	text-align: right;
+	margin-right: 5px;
+}
+
+button.dismiss {
+	position: absolute;
+	top: 7px;
+	right: 5px;
+	z-index: 4;
+	width: 8em;
+}
+
+.file-error {
+	float: left;
+	font-weight: bold;
+	padding: 10px;
+}
+
+.progress {
+	position: relative;
+	margin-bottom: -36px;
+	height: 36px;
+}
+
+.bar {
+	width: 0;
+	height: 100%;
+	border-right-width: 3px;
+	border-right-style: solid;
+}
+
+#media-items a.delete,
+#media-items a.del-link {
+	padding: 1px 4px 2px;
+}
+.bar {
+	background-color: #e8e8e8;
+	border-right-color: #99d;
+}
+
