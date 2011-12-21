@@ -64,7 +64,7 @@ if (!defined('IN_AMALIA_INSTALLER'))
 
 }
 
-$rev = '54c07d7'; // git-rev-auto-update-line
+$rev = '4720197'; // git-rev-auto-update-line
 define('AMALIA_VERSION', 'git-'.$rev);
 
 $checks['php'] = (version_compare(PHP_VERSION, '5.2.3', '>='));

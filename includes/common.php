@@ -65,7 +65,7 @@ if ( ! defined('IN_AMALIA'))
 	} 
 
 
-$rev = '54c07d7'; // git-rev-auto-update-line
+$rev = '4720197'; // git-rev-auto-update-line
 define('AMALIA_VERSION', 'git-'.$rev);
 
 function safe_plain($text, $doHTMLEntities = true)
